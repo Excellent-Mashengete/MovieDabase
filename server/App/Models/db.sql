@@ -16,15 +16,8 @@ CREATE TABLE Movies(
     image text NOT NULL,
     Duration time NOT NULL,
     Budget decimal(10,2) NOT NULL,
-    year Date
-);
-
-DROP TABLE IF EXISTS Genres CASCADE;
-CREATE TABLE Genres(
-    id SERIAL PRIMARY KEY,
-    genres VARCHAR(100),
-    movie_id int,
-    FOREIGN KEY(movie_id) REFERENCES Movies(movie_id)
+    year Date,
+    genre varchar(255)[]
 );
 
 DROP TABLE IF EXISTS Category CASCADE;
@@ -38,10 +31,10 @@ CREATE TABLE Category(
 DROP TABLE IF EXISTS Actors CASCADE;
 CREATE TABLE Actors(
     id SERIAL PRIMARY KEY,
-    fname VARCHAR(100),
-    lname VARCHAR(100),
-    image text,
-    actorname VARCHAR(100),
+    fname text[],
+    lname text[],
+    image text[],
+    actorname text[],
     movie_id int,
     FOREIGN KEY(movie_id) REFERENCES Movies(movie_id)
 );
