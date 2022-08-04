@@ -3,13 +3,21 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../Service/authentication.service';
 import { MustMatch } from './utils/validation';
+import { NgxLoadingComponent, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
+
 export class RegisterComponent implements OnInit {
+  @ViewChild('ngxLoading', { static: false })
+  ngxLoadingComponent!: NgxLoadingComponent;
+  showingTemplate = false;
+  public ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
+  public loading = false;
+  
   Form = new FormGroup({
     fname : new FormControl(''),
     lname : new FormControl(''),
@@ -27,6 +35,7 @@ export class RegisterComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.Form = this.formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],

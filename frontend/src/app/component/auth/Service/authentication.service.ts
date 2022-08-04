@@ -18,23 +18,28 @@ export class AuthenticationService {
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient,private router: Router) { }
 
+  //create a login request using 
   login(users : Login): Observable<any> {
     return this.http.post(`${this.baseUrl}login`, users)
   }
 
+  //create a register request 
   register(users : Register) {
     return this.http.post(`${this.baseUrl}register`, users);
   }
   
+  //get a token 
   getToken() {
     return localStorage.getItem('access_token');
   }
 
+  //create a login request 
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return authToken !== null ? true : false;
   }
   
+  //Create a logout 
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
@@ -42,6 +47,8 @@ export class AuthenticationService {
     }
   }
   
+  //create a get request for current logged in user
+  //pass the token back to the backend to be decoded in order to receive current logged in user
   getUserProfile(){
     return this.http.get(`${this.baseUrl}profile`,httpOptions)
   }

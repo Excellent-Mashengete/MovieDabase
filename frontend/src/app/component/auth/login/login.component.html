@@ -54,11 +54,20 @@
 
                         </form>
                         <div class="form-group ">
-                            <p>Don't have account? <a routerLink='/auth/register' class="reg" >Register</a></p>
+                            <p>Don't have account? <a (click)="loading = !loading" 
+                             routerLink='/auth/register' class="reg" >Register</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <ngx-loading
+        [show]="loading"
+        [config]="{
+        animationType: ngxLoadingAnimationTypes.circleSwish,
+        primaryColour: '#ffffff', secondaryColour: '#ffffff',
+        backdropBorderRadius: '3px'
+        }">
+    </ngx-loading>
 </section>

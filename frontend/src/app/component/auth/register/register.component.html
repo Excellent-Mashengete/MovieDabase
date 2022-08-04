@@ -85,7 +85,7 @@
                         <div class="form-group mt-3">
                             <P class = "Already">
                                 Already have an account? Click
-                                <a routerLink="/auth/login" class="here" >here</a> to log in
+                                <a routerLink="/auth/login" (click)="loading = !loading" class="here" >here</a> to log in
                             </P>
                         </div>
                     </div>
@@ -93,5 +93,13 @@
             </div>
         </div>
     </div>
+    <ngx-loading
+        [show]="loading"
+        [config]="{
+        animationType: ngxLoadingAnimationTypes.circleSwish,
+        primaryColour: '#ffffff', secondaryColour: '#ffffff',
+        backdropBorderRadius: '3px'
+        }">
+    </ngx-loading>
 </section>
 
