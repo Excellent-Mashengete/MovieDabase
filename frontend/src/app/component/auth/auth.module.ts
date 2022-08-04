@@ -4,7 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:'auth', component:AuthComponent,
@@ -14,16 +15,17 @@ const routes: Routes = [
       {path:'', redirectTo:'/login', pathMatch:'full'}
     ]
   }
- ];
+];
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    AuthComponent
+    AuthComponent,
+    NavbarComponent
   ],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule,  ReactiveFormsModule, RouterModule.forChild(routes)
   ]
 })
 export class AuthModule { }

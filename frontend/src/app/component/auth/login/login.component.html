@@ -1,1 +1,64 @@
-<p>login works!</p>
+<section class=" gradient-custom">
+    <div class="container ">
+        <div class="row justify-content-center align-items-center ">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center">
+
+                            <h1 class="text-center text-dark mt-2 mb-3">WELCOME!</h1>
+                            <P> get the best from our app </P>
+
+                        </div>
+                        <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+                            <div class="form-group col mb-4">
+                                <input type="email" formControlName="email" placeholder="Email"
+                                    class="form-control email"
+                                    [ngClass]="{ 'is-invalid':submitted && f['email'].errors }" />
+                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                                    <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col mb-4">
+                                <input type="password" formControlName="password" placeholder="Password"
+                                    class="form-control password"
+                                    [ngClass]="{ 'is-invalid':submitted && f['password'].errors }" />
+                                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['password'].errors['required']">Password is required</div>
+                                    <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 character
+                                    </div>
+                                    <div *ngIf="f['password'].errors['maxlength']">Password must not exceed 40 character
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col m">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" 
+                                            checked />
+                                        <label class="form-check-label" class="rem" for="form2Example31"> Remember me </label>
+                                    </div>
+                                </div>
+
+                                <div class="col b"  style="float:right; right:50px;">
+                                    <a routerLink="#"  class="pass" style="float:right;">Forgot password?</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <button type="submit" class="submit btn btn-secondary btn-block btn-lg" >Login</button>
+                            </div>
+
+                        </form>
+                        <div class="form-group ">
+                            <p>Don't have account? <a routerLink='/auth/register' class="reg" >Register</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
