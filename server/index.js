@@ -4,7 +4,7 @@ const app = express(); //Initialize express
 const bodyParser = require('body-parser');
 require('./App/Configs/dotenv.config')
 var corsOptions = {
-  origin: "http://localhost:4200",
+  origin: ["*","http://localhost:4200"],
   credentials: true
 };// only allow the listerning addresses to connnect to the backend
 
@@ -30,6 +30,8 @@ client.connect((err) =>{ // Connect to the Database
 
 //call our routes
 const auth = require("./App/Routes/authentication")
+const list = require("./App/Routes/movies")
+
 
 const port = process.env.PORT || 8080; //create a listerning port number
 
@@ -38,6 +40,7 @@ app.get("/", (req, res) =>{
 });
 
 app.use("/api", auth) //retrive authentication infor 
+app.use("/api", list) //retrive all movies 
 
 app.listen(port, () =>{  
     console.log(`Server is running on port ${port}. http://localhost:${port}`) 
