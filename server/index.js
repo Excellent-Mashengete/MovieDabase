@@ -4,7 +4,7 @@ const app = express(); //Initialize express
 const bodyParser = require('body-parser');
 require('./App/Configs/dotenv.config')
 var corsOptions = {
-  origin: "*.",
+  origin: "http://localhost:4200",
   credentials: true
 };// only allow the listerning addresses to connnect to the backend
 

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.loading = true;
+
     this.Form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(40)]],
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
 
     if(this.Form.invalid)
     { 
+  
       return
     }
 
@@ -55,6 +56,21 @@ export class LoginComponent implements OnInit {
       email: this.Form.value.email,
       password: this.Form.value.password 
     }
+    this.auth.login(user).subscribe({
+      next:data =>{
+  
+        this.userToken = data
+        localStorage.setItem('access_token', this.userToken.token)
+ 
+      },
+        error: err => {
+          this.submitted = true;
+
+          this.errorMessage = err.error.message;
+          
+      }
+    } 
+  )
 
     console.log(user)
     this.router.navigate(['/login'])

@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.loading = true;
+
     this.Form = this.formBuilder.group({
       fname: ['', Validators.required],
       lname: ['', Validators.required],
@@ -77,7 +77,19 @@ export class RegisterComponent implements OnInit {
       password : this.Form.value.password,
     }
 
-    console.log(user)
-    this.router.navigate(['/login'])
+    this.userService.register(user).subscribe({
+      next:data =>{
+        console.log(data)
+        this.Form.reset();
+  
+        this.router.navigate(['/login'])
+      },
+      error: err => {
+ 
+        this.errorMessage = err.error.message;
+
+      }
+    })
+
   }
 }
