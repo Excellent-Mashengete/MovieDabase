@@ -7,9 +7,9 @@ const {Client} = require("pg");
 //     PORT:'5432',
 //     DIALECT:'postgres'
 // }
-// postgres://ejuhkgfxdbccqd:902664f1c7e6c2254766da1e8193f892889dfed4d8033197613f7f36a76a4e2a@ec2-44-206-197-71.compute-1.amazonaws.com:5432/d7au8bhh8ggg5o
+const DB_CONNECTION =  "postgres://jokxbzwdhwcljm:49d4aae070bfc50680e97293ec4c46be644d5fb162bc093f7fe7199e4177ed0a@ec2-34-199-68-114.compute-1.amazonaws.com:5432/dba70kiu69h4av"
 const client = new Client({
-    connectionString: process.env.DB_CONNECTION,
+    connectionString: DB_CONNECTION,
     ssl:{
         rejectUnauthorized: false //allows external access to database when using nodejs
     }
