@@ -1,0 +1,6 @@
+.card{
+    width: 190px;
+}
+.card.image-full:before, .card.image-full > *{
+    background-color: #ffffff00;
+}

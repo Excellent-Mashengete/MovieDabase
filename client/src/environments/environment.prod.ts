@@ -1,3 +1,5 @@
+const baseUrls = "https://api.themoviedb.org/3/"
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: `${baseUrls}`
 };

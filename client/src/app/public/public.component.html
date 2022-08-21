@@ -1,1 +1,22 @@
-<p>public works!</p>
+<div class="container-fluid">
+  <div class="nav w-full  bg-base-300 fixed top-0 z-50 inherrit"> 
+    <app-header></app-header>
+  </div>
+
+  <div class="carousel"> 
+    <p-carousel [value]="list" [numVisible]="5" [numScroll]="4" [circular]="true" [responsiveOptions]="responsiveOptions">
+      <ng-template let-product pTemplate="item">
+        <div class="product-item">
+          <figure><img src="http://image.tmdb.org/t/p/w500/{{ product.poster_path }}" ></figure>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+
+  <div class="body"> 
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

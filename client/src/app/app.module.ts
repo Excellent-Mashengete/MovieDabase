@@ -1,16 +1,19 @@
+//Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { PublicModule } from './public/public.module';
+
+//Components
 import { AppComponent } from './app.component';
-import { PublicComponent } from './public/public.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PublicComponent
+
   ],
   imports: [
+    PublicModule,
     BrowserModule,
     AppRoutingModule
   ],
