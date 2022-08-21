@@ -36,7 +36,7 @@ const routes: Routes = [
       {path:'home', component:LandingComponent},
       {path:'movies', component:MoviesComponent},
       {path:'tvseries', component:TvseriesComponent },
-      {path:'', redirectTo:'/', pathMatch:'full'}
+      {path:'', redirectTo:'/home', pathMatch:'full'}
   ]}
 ]
 
