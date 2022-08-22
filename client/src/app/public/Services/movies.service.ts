@@ -28,6 +28,15 @@ export class MoviesService {
     return this.http.get(`${this.baseUrl}movie/upcoming${this.api_key}`);
   }
 
+  getTopRated(): Observable<any>{
+    return this.http.get(`${this.baseUrl}movie/top-rated${this.api_key}`);
+  }
+
+  getNowPlaying(): Observable<any>{
+    return this.http.get(`${this.baseUrl}movie/now-playing${this.api_key}`);
+  }
+
+ 
   // getOneMovie(id:any): Observable<Movies> {
   //   return this.http.get(`${movieUrl}/${id}${movieID}`);
   // }

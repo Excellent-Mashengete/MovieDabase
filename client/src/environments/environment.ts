@@ -2,7 +2,7 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const api_key = "?api_key=b47305b354135433a8512ad26ed78b50&language=en-US&page="
+const api_key = "?api_key=b47305b354135433a8512ad26ed78b50&language=en-US&page=1"
 const baseUrl = "https://api.themoviedb.org/3/"
 
 export const environment = {
