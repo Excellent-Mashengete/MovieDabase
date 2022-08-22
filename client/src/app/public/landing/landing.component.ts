@@ -10,10 +10,29 @@ import { TvseriesService } from '../Services/tvseries.service';
 export class LandingComponent implements OnInit {
   latestMovies:any = [];
   listMovies:any = [];
-
   latestTv:any = [];
   listTv:any = [];
-  constructor( private movieList: MoviesService, private tv:TvseriesService)  { }
+  responsiveOptions;
+
+  constructor( private movieList: MoviesService, private tv:TvseriesService)  { 
+    this.responsiveOptions = [
+      {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 2
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+    ];
+  }
 
   ngOnInit(): void {
     this.getMovies();
