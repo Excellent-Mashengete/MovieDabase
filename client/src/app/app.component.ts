@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+  mode:any;
+  
+  changeMode(e:any){
+    this.mode = e;
+    console.log(this.mode);
+    
+  }
 }

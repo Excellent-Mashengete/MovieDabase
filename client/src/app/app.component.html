@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+
+<div [attr.data-theme]="mode">
+    <div class="nav w-full bg-base-900 fixed top-0 z-50 inherrit"> 
+        <app-navbar></app-navbar>
+    </div>
+    
+    <router-outlet></router-outlet>
+    
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>
+
+<div  *ngIf="mode != 'dark'" class="btn bg-white ">
+    <a (click)="changeMode('dark')" ><i class="fa-regular fa-moon text-black text-2xl "></i></a>  
+</div>
+
+<div *ngIf="mode == 'dark'" class="btn bg-neutral ">
+    <a (click)="changeMode('light')"><i class="fa-regular fa-moon text-white text-2xl "></i></a>
+</div>
