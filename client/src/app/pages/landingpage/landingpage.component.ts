@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MoviesService } from '../movies/Service/movies.service';
 import { TvseriesService } from '../tvseries/Service/tvseries.service';
 
@@ -16,7 +17,7 @@ export class LandingpageComponent implements OnInit {
   listTv:any = [];
   mode:any;
 
-  constructor( private movieList: MoviesService, private tv:TvseriesService) { 
+  constructor( private movieList: MoviesService, private tv:TvseriesService, private router:Router) { 
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -57,5 +58,10 @@ export class LandingpageComponent implements OnInit {
         this.listTv = this.latestTv.results
       }
     })
+  }
+
+  movieByID(movie:any){
+    console.log(movie)
+    this.router.navigate(['/movies/movieByID'])
   }
 }

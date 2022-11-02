@@ -11,7 +11,8 @@ import {CarouselModule} from 'primeng/carousel';
 const routes: Routes = [
   {path:'movies', component:MoviesComponent,
   children:[
-    {path:'allmovies', component:MovieListComponent}
+    {path:'allmovies', component:MovieListComponent},
+    {path:'movieByID/:id', component:MoviesByIdComponent},
   ]}
 ]
 
