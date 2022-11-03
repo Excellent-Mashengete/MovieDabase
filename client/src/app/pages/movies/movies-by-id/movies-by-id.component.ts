@@ -27,7 +27,9 @@ export class MoviesByIdComponent implements OnInit {
       next: data =>{
         this.latestMovies = data;
         this.list = this.latestMovies.results
-        this.moviebyID = this.list.filter((item:any) => item.id == id)        
+        this.moviebyID = this.list.filter((item:any) => item.id == id)   
+        console.log(this.moviebyID);
+             
       }
     })
   }
