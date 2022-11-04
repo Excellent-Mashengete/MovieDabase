@@ -19,7 +19,7 @@
         <div class="title mb-5">Popular Movies</div> 
         <div class="flex justify-center"> 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-8">
-                <div class="card drop-shadow-xl w-full bg-base-100 shadow-xl image-full" *ngFor="let lists of list" >
+                <div class="card drop-shadow-xl rounded-none w-full bg-base-100 shadow-xl image-full" *ngFor="let lists of list" >
                     <figure><img class="z-50" routerLink="movies/movieByID/{{lists.id}}" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path }}" alt="movieImages" /></figure>
                 </div>
             </div>
@@ -31,10 +31,12 @@
         <div class="title mb-5">Popular TV Shows</div>
         <div class="flex justify-center">  
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-8">
-                <div class="card drop-shadow-xl w-full bg-base-100 shadow-xl image-full" *ngFor="let lists of listTv" >
-                    <figure><img class="z-50" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path}}" alt="movieImages" /></figure>
+                <div class="card drop-shadow-xl rounded-none w-full bg-base-100 shadow-xl image-full" *ngFor="let lists of listTv" >
+                    <figure><img class="z-50" routerLink="/tv/tvseries/{{lists.id}}" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path}}" alt="movieImages" /></figure>
                 </div>
             </div>
         </div>
     </div> 
 </div> 
+
+

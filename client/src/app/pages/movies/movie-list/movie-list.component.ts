@@ -45,6 +45,7 @@ export class MovieListComponent implements OnInit {
       next: data =>{
         this.latestMovies = data;
         this.list = this.latestMovies.results
+    
       }
     })
   }

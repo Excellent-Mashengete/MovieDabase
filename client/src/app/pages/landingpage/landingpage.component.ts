@@ -16,7 +16,7 @@ export class LandingpageComponent implements OnInit {
   latestTv:any = [];
   listTv:any = [];
   mode:any;
-
+  name:any;
   constructor( private movieList: MoviesService, private tv:TvseriesService, private router:Router) { 
     this.responsiveOptions = [
       {
@@ -40,6 +40,8 @@ export class LandingpageComponent implements OnInit {
   ngOnInit(): void {
     this.getMovies();
     this.getTvSeries();
+
+    
   }
 
   getMovies() {
@@ -56,12 +58,10 @@ export class LandingpageComponent implements OnInit {
       next: data =>{
         this.latestTv = data;
         this.listTv = this.latestTv.results
+
+        
       }
     })
   }
-
-  movieByID(movie:any){
-    console.log(movie)
-    this.router.navigate(['/movies/movieByID'])
-  }
+  
 }

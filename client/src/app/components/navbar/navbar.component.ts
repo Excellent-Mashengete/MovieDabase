@@ -11,13 +11,17 @@ export class NavbarComponent implements OnInit {
   constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
+    
   }
 
   logout(){
-    this.auth.doLogout()
+    this.auth.doLogout();  
   }
 
   login(){
+    console.log(document.getElementById('login'));
     localStorage.setItem('access_token', "drfghjk");
   }
+
+
 }

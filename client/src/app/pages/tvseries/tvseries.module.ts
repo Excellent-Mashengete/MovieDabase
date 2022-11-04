@@ -8,7 +8,8 @@ import { TvShowsComponent } from './tv-shows/tv-shows.component';
 const routes: Routes = [
   {path:'tv', component:TvseriesComponent,
   children:[
-    {path:'alltvseries', component:TvShowsComponent}
+    {path:'alltvseries', component:TvShowsComponent},
+    {path:'tvseries/:id', component:TvseriesByIdComponent},
   ]}
 ]
 
