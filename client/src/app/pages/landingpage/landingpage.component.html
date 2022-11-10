@@ -16,11 +16,14 @@
 <div class="body mb-10"> 
 <!--  Display all Movies-->
     <div class="container" style="margin-top:10vh;"> 
-        <div class="title mb-5">Popular Movies</div> 
+        <div class="title mb-5">Popular Movies</div>
         <div class="flex justify-center"> 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-8">
                 <div class="card drop-shadow-xl rounded-none w-full bg-base-100 shadow-xl image-full" *ngFor="let lists of list" >
-                    <figure><img class="z-50" routerLink="movies/movieByID/{{lists.id}}" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path }}" alt="movieImages" /></figure>
+                    <figure><img class="z-10 images"  routerLink="movies/movieByID/{{lists.id}}" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path }}" alt="movieImages" /></figure>
+                    <span class="body z-10 absolute right-0 text-white" data-hover="click to view details">
+                        <a class="cursor-pointer link border-4 border-emerald-600 ml-5 px-2 bg-inherit py-1 rounded-full">{{lists.vote_average}}</a>
+                    </span>  
                 </div>
             </div>
         </div>
@@ -33,6 +36,9 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-8">
                 <div class="card drop-shadow-xl rounded-none w-full bg-base-100 shadow-xl image-full" *ngFor="let lists of listTv" >
                     <figure><img class="z-50" routerLink="/tv/tvseries/{{lists.id}}" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path}}" alt="movieImages" /></figure>
+                    <span class="body z-50 absolute right-0 text-white" data-hover="click to view details">
+                        <a class="cursor-pointer link border-4 border-emerald-600 ml-5 px-2 bg-inherit py-1 rounded-full">{{lists.vote_average}}</a>
+                    </span>  
                 </div>
             </div>
         </div>

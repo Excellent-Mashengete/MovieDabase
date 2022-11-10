@@ -7,6 +7,11 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 
 //PrimeNG Impots Modules
 import {CarouselModule} from 'primeng/carousel';
+import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 const routes: Routes = [
   {path:'movies', component:MoviesComponent,
@@ -24,8 +29,12 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    MessagesModule,
+    ToastModule,
+    ConfirmDialogModule,
     CarouselModule,
     [RouterModule.forChild(routes)],
-  ]
+  ],
+  providers: [MessageService, ConfirmationService],
 })
 export class MoviesModule { }

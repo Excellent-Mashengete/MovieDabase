@@ -30,6 +30,7 @@ import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     NavbarComponent,
     LandingpageComponent,
+
   ],
   imports: [
     PrivateModule,
@@ -57,6 +59,8 @@ import { HttpClientModule } from '@angular/common/http';
 		DropdownModule,
 		ButtonModule,
     InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
     ConfirmDialogModule,
     MessagesModule,
   ],

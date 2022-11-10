@@ -64,4 +64,8 @@ export class LandingpageComponent implements OnInit {
     })
   }
   
+  movies(){
+    console.log("hellow World");
+    
+  }
 }

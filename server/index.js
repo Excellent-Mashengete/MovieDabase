@@ -17,6 +17,7 @@ app.use(
         extended: true
     })
 );
+
 //call our backend connections file
 const client = require('./App/Configs/db.config')
 client.connect((err) =>{ // Connect to the Database
@@ -28,19 +29,11 @@ client.connect((err) =>{ // Connect to the Database
     }
 });
 
-//call our routes
-const auth = require("./App/Routes/authentication")
-const list = require("./App/Routes/movies")
-
-
 const port = process.env.PORT || 8080; //create a listerning port number
 
 app.get("/", (req, res) =>{
     res.status(200).send("Welcome to Excellent server");
 });
-
-app.use("/api", auth) //retrive authentication infor 
-app.use("/api", list) //retrive all movies 
 
 app.listen(port, () =>{  
     console.log(`Server is running on port ${port}. http://localhost:${port}`) 

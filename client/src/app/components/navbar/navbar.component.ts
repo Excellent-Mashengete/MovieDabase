@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/pages/auth/service/auth.service';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,18 +12,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(public auth:AuthService) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   logout(){
     this.auth.doLogout();  
   }
-
-  login(){
-    console.log(document.getElementById('login'));
-    localStorage.setItem('access_token', "drfghjk");
-  }
-
-
 }

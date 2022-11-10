@@ -8,6 +8,11 @@
     background-color: #ffffff00;
 }
 
-// .figure .img{
-
-// }
+.card:hover{
+    cursor: pointer;
+    transform: perspective(700px) translate3d(0,0,80px);
+}
+.link{
+    text-decoration-line:none;
+    float: right;
+}

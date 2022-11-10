@@ -1,3 +1,36 @@
-
 <div class="divider mb-10"></div>
-<router-outlet></router-outlet>
+<div class="container navbar mb-4 ml-12 bg-base-100">
+    <div class="flex-1">
+        <ul class="menu menu-horizontal p-0 ">
+            <li class="cursor-default hover:none">
+                <label tabindex="0">
+                    <div class="indicator cursor-default hover:none">
+                        <p class="cursor-default hover:none" routerLink='/myaccount/moviesWatch'>My watch List
+                        </p>
+                    </div>
+                </label>
+            </li>
+            <li class="ml-2">
+                <label tabindex="0">
+                    <div class="indicator">
+                        <a routerLink='/myaccount/moviesWatch'>Movies
+                        <span class="badge badge-sm indicator-item">{{8}}</span>
+                        </a>
+                    </div>
+                </label>
+            </li>
+            <li class="ml-2">
+                <label tabindex="0">
+                    <div class="indicator">
+                        <a routerLink='/myaccount/tvWtach'>TV Series
+                        <span class="badge badge-sm indicator-item">{{8}}</span>
+                        </a>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container ">
+    <router-outlet></router-outlet>
+</div>

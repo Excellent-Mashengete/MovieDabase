@@ -1,0 +1,13 @@
+<div class="grid grid-cols-1 gap-6 content-center">
+    <div class="card rounded-none lg:card-side lg:h-64 bg-base-100 shadow-xl" *ngFor="let lists of tvList">
+        <figure><img class="lg:w-64 lg:h-64 h-80" src="http://image.tmdb.org/t/p/w500/{{ lists.poster_path }}" alt="Album"/></figure>
+        <div class="card-body">
+            <h2 class="card-title">New album is released!</h2>
+            <p>Click the button to listen on Spotiwhy app.</p>
+            <div class="card-actions justify-end">
+                <button class="btn btn-primary">Listen</button>
+            </div>
+        </div>
+    </div>
+</div>
+

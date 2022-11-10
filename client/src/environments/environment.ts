@@ -4,11 +4,13 @@
 
 const api_key = "?api_key=b47305b354135433a8512ad26ed78b50&language=en-US&page="
 const baseUrl = "https://api.themoviedb.org/3/"
+const userUrls = "http://localhost:3000/api/"
 
 export const environment = {
   production: false,
   baseUrl: `${baseUrl}`,
   api_key: `${api_key}`,
+  userUrls: `${userUrls}`,
 };
 
 /*
