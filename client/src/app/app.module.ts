@@ -31,6 +31,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,34 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     ConfirmDialogModule,
     MessagesModule,
+    NgxUiLoaderModule.forRoot({
+      overlayColor: "rgba(0,0,0,0.85)",
+      logoPosition: "center-center",
+      textPosition: "center-center",
+      bgsPosition: "center-center",
+      fgsPosition: "center-center",
+      bgsType: "wandering-cubes",
+      masterLoaderId: "master",
+      overlayBorderRadius: "0",
+      fgsType: "three-strings",
+      hasProgressBar: false,
+      textColor: "#33b5e5",
+      bgsColor: "#33b5e5",
+      fgsColor: "#33b5e5",
+      pbDirection: "ltr",
+      pbColor: "#33b5e5",
+      text: "Loading...",
+      fastFadeOut: true,
+      bgsOpacity: 0.4,
+      pbThickness: 3,
+      logoSize: 120,
+      bgsSize: 80,
+      logoUrl: "",
+      fgsSize: 80,
+      delay: 0,
+      blur: 15,
+      gap: 10,
+    }),
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]

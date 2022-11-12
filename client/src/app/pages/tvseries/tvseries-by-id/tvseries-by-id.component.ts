@@ -4,6 +4,8 @@ import { AuthService } from '../../auth/service/auth.service';
 import { MoviesService } from '../../movies/Service/movies.service';
 import { TvseriesService } from '../Service/tvseries.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+
 @Component({
   selector: 'app-tvseries-by-id',
   templateUrl: './tvseries-by-id.component.html',
@@ -18,10 +20,11 @@ export class TvseriesByIdComponent implements OnInit {
   tvSeriesById:any = [];
   id:number = 0;
   constructor(private tv:TvseriesService, private router:ActivatedRoute, private movieList: MoviesService,
-    private messageService: MessageService,
+    private messageService: MessageService, private __loader:NgxUiLoaderService,
     private confirmationService: ConfirmationService, public auth:AuthService) { }
 
   ngOnInit(): void {
+    this.__loader.start();
     this.id = this.router.snapshot.params['id']
     this.getTvSeries(this.id)
   }
@@ -35,6 +38,7 @@ export class TvseriesByIdComponent implements OnInit {
         this.tvSeriesById[0].genre_ids.forEach((element:any) => {
           this.thisArray.push(this.movieList.getgenres(element))
         });
+        this.__loader.stop();
       }
     })
   }

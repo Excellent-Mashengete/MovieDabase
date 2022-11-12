@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MoviesService } from '../movies/Service/movies.service';
 import { TvseriesService } from '../tvseries/Service/tvseries.service';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-landingpage',
@@ -17,7 +18,8 @@ export class LandingpageComponent implements OnInit {
   listTv:any = [];
   mode:any;
   name:any;
-  constructor( private movieList: MoviesService, private tv:TvseriesService, private router:Router) { 
+  constructor( private movieList: MoviesService, private tv:TvseriesService, private router:Router,
+    private __loader: NgxUiLoaderService,) { 
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -38,10 +40,9 @@ export class LandingpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.__loader.start();
     this.getMovies();
     this.getTvSeries();
-
-    
   }
 
   getMovies() {
@@ -58,14 +59,10 @@ export class LandingpageComponent implements OnInit {
       next: data =>{
         this.latestTv = data;
         this.listTv = this.latestTv.results
-
-        
+        this.__loader.stop();
       }
     })
   }
   
-  movies(){
-    console.log("hellow World");
-    
-  }
+ 
 }
