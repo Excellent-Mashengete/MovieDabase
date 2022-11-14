@@ -4,3 +4,7 @@
 .card.image-full:before, .card.image-full > *{
     background-color: #ffffff00;
 }
+.card:hover{
+    cursor: pointer;
+    transform: perspective(700px) translate3d(0,0,80px);
+}

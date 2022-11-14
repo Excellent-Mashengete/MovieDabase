@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AuthService } from '../../auth/service/auth.service';
 import { MoviesService } from '../Service/movies.service';
-
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-movies-by-id',
   templateUrl: './movies-by-id.component.html',
@@ -18,12 +18,13 @@ export class MoviesByIdComponent implements OnInit {
   list:any = [];
   moviebyID:any = [];
   thisArray:any =[];
-  constructor(private router:ActivatedRoute, private messageService: MessageService,
+  constructor(private router:ActivatedRoute, private messageService: MessageService, private __loader: NgxUiLoaderService,
     private confirmationService: ConfirmationService, private movieList: MoviesService, public auth:AuthService,) { }
 
   ngOnInit(): void {
-   this.id = this.router.snapshot.params['id']
-   this.getMovies(this.id) 
+    this.__loader.start();
+    this.id = this.router.snapshot.params['id']
+    this.getMovies(this.id) 
   }
 
   getMovies(id:number) {
@@ -38,6 +39,7 @@ export class MoviesByIdComponent implements OnInit {
         this.moviebyID[0].genre_ids.forEach((element:any) => {
           this.thisArray.push(this.movieList.getgenres(element))
         });
+        this.__loader.stop();
       }
     })
   }

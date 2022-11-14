@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { MustMatch } from './confirmPassword/validation';
 import { MessageService } from 'primeng/api';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
   myData: any = {};
   decodedToken: any = {};
   constructor(private formBuilder: FormBuilder, private messageService: MessageService,
-    private router:Router, private auth:AuthService) { }
+    private router:Router, private auth:AuthService, private __loader: NgxUiLoaderService,) { }
 
   ngOnInit(): void {
     this.Form = this.formBuilder.group({
@@ -48,6 +49,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    // this.__loader.start();
     this.submitted = true;
     if(this.Form.invalid)
     { 
@@ -67,8 +69,6 @@ export class RegisterComponent implements OnInit {
     this.auth.register(user).subscribe({
       next:data => {
         this.Form.reset();
-        console.log(data);
-        
         this.messageService.add({
           key: 'tc', severity:'success', summary: 'Success', detail: "Successfully Registered", life: 3000
         }); 

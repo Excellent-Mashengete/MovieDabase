@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 //COMPONENTS
 import { LoginComponent } from './login/login.component';
@@ -36,6 +37,34 @@ const routes: Routes = [
     FormsModule,
     ConfirmDialogModule,
     ReactiveFormsModule,
+    NgxUiLoaderModule.forRoot({
+      overlayColor: "rgba(0,0,0,0.85)",
+      logoPosition: "center-center",
+      textPosition: "center-center",
+      bgsPosition: "center-center",
+      fgsPosition: "center-center",
+      bgsType: "wandering-cubes",
+      masterLoaderId: "master",
+      overlayBorderRadius: "0",
+      fgsType: "three-strings",
+      hasProgressBar: false,
+      textColor: "#33b5e5",
+      bgsColor: "#33b5e5",
+      fgsColor: "#33b5e5",
+      pbDirection: "ltr",
+      pbColor: "#33b5e5",
+      text: "Loading...",
+      fastFadeOut: true,
+      bgsOpacity: 0.4,
+      pbThickness: 3,
+      logoSize: 120,
+      bgsSize: 80,
+      logoUrl: "",
+      fgsSize: 80,
+      delay: 0,
+      blur: 15,
+      gap: 10,
+    }),
     [RouterModule.forChild(routes)],
   ],
   providers: [MessageService, ConfirmationService],

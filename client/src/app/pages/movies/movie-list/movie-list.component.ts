@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MoviesService } from '../Service/movies.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class MovieListComponent implements OnInit {
   listTv:any = [];
   mode:any;
 
-  constructor( private movieList: MoviesService) { 
+  constructor( private movieList: MoviesService,  private __loader: NgxUiLoaderService,) { 
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -37,6 +38,7 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.__loader.start();
     this.getMovies();
   }
 
@@ -45,7 +47,7 @@ export class MovieListComponent implements OnInit {
       next: data =>{
         this.latestMovies = data;
         this.list = this.latestMovies.results
-    
+        this.__loader.stop();
       }
     })
   }

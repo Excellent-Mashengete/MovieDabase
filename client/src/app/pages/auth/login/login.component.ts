@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
 import { AuthService } from '../service/auth.service';
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   myData: any = {};
   decodedToken: any = {};
   constructor(private formBuilder: FormBuilder, private messageService: MessageService, private auth:AuthService,
-    private router:Router) { }
+    private router:Router,  private __loader: NgxUiLoaderService,) { }
 
   ngOnInit(): void {
     this.Form = this.formBuilder.group({
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   login():void{
+    // this.__loader.start();
     this.submitted = true;
     if(this.Form.invalid)
     { 
@@ -53,6 +55,7 @@ export class LoginComponent implements OnInit {
         key: 'tc', severity:'success', summary: 'Success', detail: "Successfully Loggedin", life: 3000
       });
       localStorage.setItem('access_token', "drfghjk");
+      this.Form.reset();
     }else{
       
       this.messageService.add({

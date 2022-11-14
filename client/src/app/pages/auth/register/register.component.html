@@ -1,4 +1,5 @@
 <p-toast position="top-right" key="tc"></p-toast>
+<ngx-ui-loader></ngx-ui-loader>
 <input type="checkbox" id="register" class="modal-toggle" />
 <label for="register" class="modal cursor-pointer">
     <label class="modal-box relative lg:w-9/12 lg:max-w-xl md:w-9/12 md:max-w-xl rounded-none" for="">
@@ -7,16 +8,12 @@
                 <div class="card-body ">
                     <div class="text-center mb-3">
                         <h1 class="md:text-2xl  mt-2 mb-3">WELCOME!</h1>
-                        <P class = "Already">
-                            Or
-                            <a class="reg cursor-pointer" ><label for="register">Register here</label></a>
-                        </P>
                     </div>
                     <form [formGroup]="Form" >
                         <div class="grid gap-4 mb-4 md:grid-cols-2">
                             <div class="form-group col mb-2">
                                 <div class="flex">
-                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"><i class="fa-solid fa-envelope"></i></span>
+                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"><i class="fa-solid fa-user"></i></span>
                                     <input type="text" formControlName="fname" placeholder="First name" class="input input-bordered w-full max-w-s email rounded-none rounded-r-lg" [ngClass]="{ 'is-invalid':submitted && f['fname'].errors }" />
                                 </div>
                                 <div *ngIf="submitted && f['fname'].errors" class="invalid-feedback">
@@ -26,8 +23,8 @@
 
                             <div class="form-group col mb-2">
                                 <div class="flex">
-                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"><i class="fa-solid fa-envelope"></i></span>
-                                    <input type="lname" formControlName="lname" placeholder="Last Name" class="input input-bordered w-full max-w-s email rounded-none rounded-r-lg" [ngClass]="{ 'is-invalid':submitted && f['lname'].errors }" />
+                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"><i class="fa-solid fa-user"></i></span>
+                                    <input type="text" formControlName="lname" placeholder="Last Name" class="input input-bordered w-full max-w-s email rounded-none rounded-r-lg" [ngClass]="{ 'is-invalid':submitted && f['lname'].errors }" />
                                 </div>
                                 <div *ngIf="submitted && f['lname'].errors" class="invalid-feedback">
                                     <div *ngIf="f['lname'].errors['required']">Last Name is required</div>
@@ -47,7 +44,7 @@
 
                             <div class="form-group col mb-2">
                                 <div class="flex">
-                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"><i class="fa-solid fa-envelope"></i></span>
+                                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"><i class="fa-solid fa-phone"></i></span>
                                     <input type="text" mask='111-111-1111'  formControlName="phone" class="input input-bordered w-full max-w-s email rounded-none rounded-r-lg" placeholder="111-111-1111" [ngClass]="{ 'is-invalid':submitted && f['phone'].errors }" />
                                 </div>
                                 <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
@@ -85,6 +82,12 @@
                             <button type="submit" (click)="register()" class="text-white btn-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full md:w-auto px-5 py-2.5 text-center dark:btn-primary dark:hover:btn-primary dark:focus:ring-blue-800"><label for="register">Register</label></button>
                         </div>
                     </form>
+                    <div class="form-group ">
+                        <P class = "Already">
+                             Have an Account
+                            <a class="reg cursor-pointer" >Login</a> 
+                        </P>
+                    </div>
                 </div>
             </div>
         </div> 
