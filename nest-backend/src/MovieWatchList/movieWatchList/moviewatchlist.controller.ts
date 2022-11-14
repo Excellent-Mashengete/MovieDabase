@@ -6,6 +6,7 @@ import { UserWatchList } from '../dtos/watch.dtos';
 export class MoviewatchlistController {
     constructor(private movie: MoviewatchlistService){}
 
+    //Add movie to watch list
     @Post('/addovies')
     async createProduct(@Res() response, @Body() movies: UserWatchList) {
         try {
@@ -27,6 +28,7 @@ export class MoviewatchlistController {
         }
     }
 
+    //Receive a type through a parameter then search for tthose movies with that specific type received from that parameter
     @Get('/readMovielist/:type')
     async getAllMovies(@Res() response,  @Param('type') movies: string){
         try {
@@ -37,12 +39,12 @@ export class MoviewatchlistController {
         }
     }
 
-
+    //Receive a id through a parameter then Delete a movie with a specific id received from that parameter
     @Delete('/removeMovie/:_id')
-    async deleteStudent(@Res() response, @Param('_id') movieId: number){
-        try {
+    async deleteStudent(@Res() response, @Param('_id') movieId: any){
+        try {        
             const deletedMovie = await this.movie.removeMovie(movieId);
-            return response.status(HttpStatus.OK).json({message: 'Student deleted successfully',deletedMovie});
+            return response.status(HttpStatus.OK).json({message: 'Movie removed from your watch list successfully',deletedMovie});
         }catch (err) {
             return response.status(err.status).json(err.response);
         }

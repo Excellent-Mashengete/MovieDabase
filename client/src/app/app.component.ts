@@ -10,8 +10,6 @@ export class AppComponent {
   mode:any;
   
   changeMode(e:any){
-    this.mode = e;
-    console.log(this.mode);
-    
+    this.mode = e;    
   }
 }

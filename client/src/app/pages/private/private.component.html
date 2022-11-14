@@ -1,20 +1,18 @@
 <div class="divider mb-10"></div>
-<div class="container navbar mb-4 ml-12 bg-base-100">
+<div class="container navbar mb-4 lg:ml-12 bg-base-100">
     <div class="flex-1">
         <ul class="menu menu-horizontal p-0 ">
-            <li class="cursor-default hover:none">
-                <label tabindex="0">
-                    <div class="indicator cursor-default hover:none">
-                        <p class="cursor-default hover:none" routerLink='/myaccount/moviesWatch'>My watch List
-                        </p>
-                    </div>
-                </label>
-            </li>
+            <label tabindex="0" class="py-3">
+                <div class="indicator cursor-default hover:none">
+                    <p class="cursor-default hover:none" >My watch List:</p>
+                </div>
+            </label>
+            
             <li class="ml-2">
                 <label tabindex="0">
                     <div class="indicator">
                         <a routerLink='/myaccount/moviesWatch'>Movies
-                        <span class="badge badge-sm indicator-item">{{8}}</span>
+                        <span class="badge badge-sm indicator-item">{{totalMovies}}</span>
                         </a>
                     </div>
                 </label>
@@ -23,11 +21,18 @@
                 <label tabindex="0">
                     <div class="indicator">
                         <a routerLink='/myaccount/tvWtach'>TV Series
-                        <span class="badge badge-sm indicator-item">{{8}}</span>
+                        <span class="badge badge-sm indicator-item">{{totalTv}}</span>
                         </a>
                     </div>
                 </label>
             </li>
+        </ul>
+    </div>
+    <div class="flex-none gap-2">
+        <ul class="menu menu-horizontal p-0 ml-2 ">
+            <a *ngIf="user" (click)="order(user)" class="py-2 ">Order: <i class="fa-solid hover:text-sky-800 px-2 py-1 cursor-pointer text-slate-500 text-md fa-arrow-up"></i> </a>
+            <a *ngIf="!user" (click)="order(user)" class="py-2 ">Order: <i class="fa-solid hover:text-sky-800 px-2 py-1 cursor-pointer text-slate-500 text-md fa-arrow-down"></i> </a>
+            
         </ul>
     </div>
 </div>

@@ -83,7 +83,7 @@ export class TvseriesByIdComponent implements OnInit {
       },
       reject: () => {
         this.messageService.add({
-          key: 'tc', severity:'warning', summary: 'Warning', detail: "Adding cancelled", life: 3000
+          key: 'tc', severity:'warn', summary: 'Warning', detail: "Adding cancelled", life: 3000
         }); 
       }
     })
